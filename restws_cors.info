@@ -1,0 +1,5 @@
+name = restws_CORS
+description = fix restws OPTIONS authentication on token.
+core = 7.x
+dependencies[] = restws
+

@@ -1,0 +1,20 @@
+<?php
+
+function restws_cors_menu() {
+  $items['restws/session/token-cors'] = array(
+    'page callback' => 'restws_session_token',
+    // Only authenticated users are allowed to retrieve a session token.
+    'access callback' => 'restws_cors_user_is_logged_in_with_options',
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function restws_cors_user_is_logged_in_with_options(){
+	$method = $_SERVER['REQUEST_METHOD'];
+
+	if('OPTIONS' == $method)
+		return true;
+	else
+		return user_is_logged_in();
+}
