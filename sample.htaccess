@@ -1,0 +1,9 @@
+  <IfModule mod_headers.c>
+    #CORS
+    SetEnvIf Origin "^http(s)?://(.+\.)?(siletto\.it|localhost|localhost2)$" DYN_ORIGIN=$0
+    Header set Access-Control-Allow-Origin %{DYN_ORIGIN}e
+    Header set Access-Control-Allow-Methods "GET, PUT, POST, OPTIONS"
+    Header set Access-Control-Allow-Credentials true
+    Header set Access-Control-Allow-Headers "Authorization, Origin, Content-Type, X-CSRF-Token"
+
+
